@@ -19,7 +19,7 @@ import time
 import requests # Import requests for making HTTP calls
 import logging
 # Import configuration
-from settings import IS_UPLOAD_DRAFT
+from settings import IS_UPLOAD_DRAFT, DRAFT_FOLDER
 from draft_profiles import get_draft_profile, write_profile_content
 
 # --- Get your Logger instance ---
@@ -259,6 +259,10 @@ def query_task_status(task_id: str):
 
 def save_draft_impl(draft_id: str, draft_folder: str = None) -> Dict[str, str]:
     """Start a background task to save the draft"""
+    # Fall back to the configured drafts directory. Without a draft_folder the
+    # exported material `path` is empty and CapCut reports "couldn't download material".
+    if not draft_folder:
+        draft_folder = DRAFT_FOLDER
     logger.info(f"Received save draft request: draft_id={draft_id}, draft_folder={draft_folder}")
     try:
         # Generate a unique task ID

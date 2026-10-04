@@ -42,8 +42,8 @@ def add_subtitle_impl(
     scale_y: float = 1.0,
     rotation: float = 0.0,
     style_reference: draft.Text_segment = None,
-    vertical: bool = True,  # New parameter: whether to display vertically
-    alpha: float = 0.4,
+    vertical: bool = False,  # Horizontal text; True renders top-to-bottom (typesetting=1)
+    alpha: float = 1.0,  # Fully opaque; burned captions must read on mute
     width: int = 1080,  # New parameter
     height: int = 1920  # New parameter
 ):

@@ -15,3 +15,5 @@ config.json
 .venv/
 venv/
 tmp/
+# CapCut draft output, generated. Includes multi-GB media.
+dfd_cat_*/

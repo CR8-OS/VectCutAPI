@@ -170,6 +170,8 @@ TOOLS = [
                 "background_alpha": {"type": "number", "default": 0.0, "description": "背景透明度"},
                 "transform_x": {"type": "number", "default": 0.0, "description": "X轴位置"},
                 "transform_y": {"type": "number", "default": -0.8, "description": "Y轴位置"},
+                "vertical": {"type": "boolean", "default": False, "description": "是否竖排文字（True 会让字幕自上而下逐字排列）"},
+                "alpha": {"type": "number", "default": 1.0, "description": "字体不透明度"},
                 "width": {"type": "integer", "default": 1080, "description": "视频宽度"},
                 "height": {"type": "integer", "default": 1920, "description": "视频高度"}
             },
@@ -251,7 +253,8 @@ TOOLS = [
         "inputSchema": {
             "type": "object",
             "properties": {
-                "draft_id": {"type": "string", "description": "草稿ID"}
+                "draft_id": {"type": "string", "description": "草稿ID"},
+                "draft_folder": {"type": "string", "description": "草稿输出目录（CapCut drafts 目录）。留空则使用 config.json 中的 draft_folder"}
             }
         }
     }

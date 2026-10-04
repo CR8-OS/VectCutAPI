@@ -24,6 +24,10 @@ PREVIEW_ROUTER = "/draft/downloader"
 # 是否上传草稿文件
 IS_UPLOAD_DRAFT = False
 
+# 草稿输出目录（CapCut 的 drafts 目录）。
+# 若为 None，save_draft 导出的素材 path 会是空字符串，CapCut 将无法定位本地素材。
+DRAFT_FOLDER = None
+
 # 端口号
 PORT = 9000
 
@@ -71,6 +75,10 @@ if os.path.exists(CONFIG_FILE_PATH):
             # 更新是否上传草稿文件
             if "is_upload_draft" in local_config:
                 IS_UPLOAD_DRAFT = local_config["is_upload_draft"]
+
+            # 更新草稿输出目录
+            if "draft_folder" in local_config:
+                DRAFT_FOLDER = local_config["draft_folder"]
                 
             # 更新OSS配置
             if "oss_config" in local_config:
